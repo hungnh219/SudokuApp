@@ -1,12 +1,16 @@
 // enum events = setValue;
 // enum CellEvent { setValue }
 
-class CellEvent {}
+abstract class CellEvent {}
 
-class setCellValue extends CellEvent {
+class ChangeValueCell extends CellEvent {
+  int newValue;
 
+  ChangeValueCell(this.newValue);
 }
 
-class chooseCell extends CellEvent {
+class ChooseCell extends CellEvent {
+  bool isClick;
 
+  ChooseCell(this.isClick);
 }
