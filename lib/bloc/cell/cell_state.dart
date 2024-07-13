@@ -13,7 +13,9 @@ class CellWithValue extends CellState {
 
 class CellClicked extends CellState {
   bool isClick;
-  CellClicked(this.isClick);
+  int row;
+  int col;
+  CellClicked(this.isClick, this.row, this.col);
 }
 
 // class CellState {

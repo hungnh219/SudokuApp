@@ -5,6 +5,8 @@ import 'package:sudoku/bloc/cell/cell_event.dart';
 import 'package:sudoku/bloc/cell/cell_state.dart';
 
 class CellBloc extends Bloc<CellEvent, CellState>{
+  static List<int> chosenCell = [-1, -1];
+  
   CellBloc() : super(InitCellState(0)) {
     on<ChangeValueCell>((event, emit) => emit(CellWithValue(event.newValue)));
     on<ChooseCell>((event, emit) => emit(CellClicked(event.isClick)));
