@@ -12,13 +12,22 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
+  // Widget build(BuildContext context) {
+  //   return BlocProvider(
+  //     create: (_) => CellBloc(),
+  //     child: MaterialApp(
+  //       debugShowCheckedModeBanner: false,
+  //       home: GameScreen(),
+  //     ),
+  //   );
+  // }
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CellBloc(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: GameScreen(),
-      ),
-    );
+    return MaterialApp(
+      home: BlocProvider(
+        create: (context) => CellBloc(),
+        child: GameScreen(),
+        ),
+        // child: GameScreen())
+      );
   }
 }
