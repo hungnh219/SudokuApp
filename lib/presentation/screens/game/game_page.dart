@@ -5,33 +5,25 @@ import 'package:sudoku/bloc/cell/cell_event.dart';
 import 'package:sudoku/bloc/cell/cell_event.dart';
 import 'package:sudoku/bloc/cell/cell_state.dart';
 import 'package:sudoku/presentation/screens/game/widget/action_button_custom.dart';
+import 'package:sudoku/presentation/screens/game/widget/sub_grid.dart';
 
-class GameScreen extends StatelessWidget {
-  const GameScreen({super.key});
+class GamePage extends StatelessWidget {
+  const GamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final cellBloc = context.read<CellBloc>();
     // String cellValue = 'huhu';
 
-    BoxDecoration clickedBoxStyle = BoxDecoration(
-       border: Border.all(
-                    color: Colors.redAccent,
-                    width: 4,
-                  ) 
-    );
-
-    BoxDecoration notClickedBoxStyle = BoxDecoration(
-       color: Colors.blueGrey
-    );
+    
 
     actionButtonPressed() {
     }
 
-    cellTapped () {
-      print('cell tap check');
-      cellBloc.add(ClickCell());
-    }
+    // cellTapped () {
+    //   print('cell tap check');
+    //   cellBloc.add(ClickCell());
+    // }
     return BlocBuilder<CellBloc, CellState>(builder: (context, state) {
       return Column(
         children: [
@@ -47,22 +39,23 @@ class GameScreen extends StatelessWidget {
               children: [
                 for(int i = 0; i < 9; i++)
                   for (int j = 0; j < 9; j++) 
-                    Container(height:20, width: 10, color: Colors.yellowAccent, child: Center(child: Text('0')),)
+                    // Container(height:20, width: 10, color: Colors.yellowAccent, child: Center(child: Text('0')),)
+                    SubGrid(state: state, coordinate: [i, j])
               ],
             ),
           ),
-          Material(
-            child: InkWell(
-              onTap: cellTapped,
-              child: Container(
-                height: 200,
-                width: 200,
-                // color: Colors.greenAccent,
-                decoration: state.isClick ? clickedBoxStyle : notClickedBoxStyle,
-                child: Center(child: Text(state.value.toString())),
-              ),
-            ),
-          ),
+          // Material(
+          //   child: InkWell(
+          //     onTap: cellTapped,
+          //     child: Container(
+          //       height: 200,
+          //       width: 200,
+          //       // color: Colors.greenAccent,
+          //       decoration: state.isClick ? clickedBoxStyle : notClickedBoxStyle,
+          //       child: Center(child: Text(state.value.toString())),
+          //     ),
+          //   ),
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

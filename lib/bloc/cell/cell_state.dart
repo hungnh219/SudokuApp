@@ -1,6 +1,7 @@
 class CellState{
   int value;
   bool isClick;
-  
-  CellState(this.value, this.isClick);
+  List<int> coordinate;
+
+  CellState(this.value, this.isClick, this.coordinate);
 }

@@ -7,5 +7,6 @@ class ChangeValueCell extends CellEvent{
 }
 
 class ClickCell extends CellEvent{
-  ClickCell();
+  List<int> coordinate;
+  ClickCell(this.coordinate);
 }

@@ -5,16 +5,23 @@ import 'package:sudoku/bloc/cell/cell_event.dart';
 import 'package:sudoku/bloc/cell/cell_state.dart';
 
 class CellBloc extends Bloc<CellEvent, CellState> {
-  CellBloc() : super(CellState(0, false)) {
+  CellBloc() : super(CellState(0, false, [0, 0])) {
     on<ClickCell>((event, emit) {
-      emit(CellState(state.value, !state.isClick));
+      if (state.coordinate[0] == event.coordinate[0] && state.coordinate[1] == event.coordinate[1]) {
+        print('same');
+        emit(CellState(state.value, !state.isClick, state.coordinate));
+      } else {
+        print('not same');
+        emit(CellState(state.value, !state.isClick, state.coordinate));
+        emit(CellState(state.value, !state.isClick, event.coordinate));
+      }
     });
 
     on<ChangeValueCell>((event, emit) {
       if (state.isClick) {
-        emit(CellState(event.newValue, state.isClick));
+        emit(CellState(event.newValue, state.isClick, state.coordinate));
       } else {
-        emit(CellState(state.value, state.isClick));
+        emit(CellState(state.value, state.isClick, state.coordinate));
       }
     });
   }
