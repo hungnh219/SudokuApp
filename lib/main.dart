@@ -6,7 +6,8 @@ import 'package:sudoku/presentation/screens/home/home_page.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => CellBloc(),
-        child: GamePage(),
+        child: SplashPage(),
         ),
         // child: GameScreen())
       );
