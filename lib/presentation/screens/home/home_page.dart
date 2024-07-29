@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/presentation/screens/game/game_page.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: [Text('heheh')],
+        children: [
+          Text('heheh'),
+
+          ElevatedButton(onPressed: () {
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context) => GamePage())
+            );
+          }, child: Text("Continue")),
+          ElevatedButton(onPressed: () {}, child: Text("New Game")),
+          ElevatedButton(onPressed: () {}, child: Text("About")),
+        ],
       ),
     );
   }

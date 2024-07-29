@@ -29,3 +29,9 @@ main() {
 
   controller.close();
 }
+
+void calculateSum(int a, int b) {
+  print(a + b);
+}
+
+// write a simple program using bloc in dart

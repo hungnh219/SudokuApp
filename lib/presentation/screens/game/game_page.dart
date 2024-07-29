@@ -6,6 +6,7 @@ import 'package:sudoku/bloc/cell/cell_event.dart';
 import 'package:sudoku/bloc/cell/cell_state.dart';
 import 'package:sudoku/presentation/screens/game/widget/action_button_custom.dart';
 import 'package:sudoku/presentation/screens/game/widget/sub_grid.dart';
+import 'package:sudoku/presentation/screens/home/home_page.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({super.key});
@@ -94,7 +95,12 @@ class GamePage extends StatelessWidget {
               child: Row(children: [
                 for(int i = 0; i < 9; i++) ActionButtonCustom(index: i)
               ],),),  
-          )
+          ),
+          ElevatedButton(onPressed: () {
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context) => HomePage())
+            );
+          }, child: Text("home")),
         ],
       );
     });

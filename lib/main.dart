@@ -25,13 +25,13 @@ class MyApp extends StatelessWidget {
   //   );
   // }
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BlocProvider(
-        create: (context) => CellBloc(),
-        child: SplashPage(),
+    return BlocProvider(
+      create: (_) => CellBloc(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashPage(),
+          // child: GameScreen())
         ),
-        // child: GameScreen())
-      );
+    );
   }
 }

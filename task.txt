@@ -2,4 +2,12 @@ implement backtracking algorithm
 
 splash screen
 
-using github copilot
+using github copilot - done
+
+30/07/24
+- learn about navigation in flutter
+
+- fix bug: auto navigate in splash 
+    + if use click-button to navigate, there will be a bug
+    
+- use bloc for sudoku board
