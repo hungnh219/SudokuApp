@@ -26,3 +26,16 @@ class CellBloc extends Bloc<CellEvent, CellState> {
     });
   }
 }
+
+class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
+  SudokuBloc() : super(SudokuInitial()) {
+    on<SelectCell>((event, emit) {
+      emit(CellSelected(event.row, event.col));
+    });
+
+    on<PlaceNumber>((event, emit) {
+      List<List<int>> board = List.generate(9, (index) => List.generate(9, (index) => 0));
+      emit(NumberPlaced(board));
+    });
+  }
+}
