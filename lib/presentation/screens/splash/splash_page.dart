@@ -10,7 +10,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 200), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
@@ -27,19 +27,24 @@ class SplashPage extends StatelessWidget {
             children: [
               Image.asset(
                 'images/splash-background.png',
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      return GamePage();
-                    }),
-                  );
-                },
-                child: Text('Next'),
-              ),
+              Positioned(
+                  top: 16,
+                  right: 16,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return GamePage();
+                        }),
+                      );
+                    },
+                    child: Text('Next'),
+                  ),
+                ),
+                Center(child: Text('heheh')),
             ],
           ),
         ),
