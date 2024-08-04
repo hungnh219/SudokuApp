@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BackButton extends StatelessWidget {
@@ -5,6 +6,13 @@ class BackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ElevatedButton(
+      child: Text(
+        'back', style: TextStyle(color: Colors.yellow),
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
   }
 }

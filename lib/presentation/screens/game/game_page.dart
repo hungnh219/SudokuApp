@@ -104,6 +104,8 @@ class GamePage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => HomePage())
             );
           }, child: Text("home")),
+          BackButton(),
+
         ],
       );
     });

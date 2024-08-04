@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
+import 'package:sudoku/presentation/screens/home/widgets/custom_home_button.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,6 +8,25 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    continueClicked() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => GamePage()));
+    }
+
+    newClicked() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => GamePage()));
+    }
+
+    aboutClicked() {
+      print('about clicked');
+    }
+
+    splashClicked() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SplashPage()));
+    }
+
     return SafeArea(
       child: Scaffold(
         body: Stack(children: [
@@ -18,27 +38,21 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
+            // color: Colors.black.withOpacity(0.5),
             width: double.infinity,
+            height: double.infinity,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('heheh'),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => GamePage()));
-                    },
-                    child: Text("Continue")),
-                ElevatedButton(onPressed: () {}, child: Text("New Game")),
-                ElevatedButton(onPressed: () {}, child: Text("About")),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SplashPage()));
-                    },
-                    child: Text("Splash")),
-              ],
-            ),
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CustomHomeButton(
+                      onClick: continueClicked, textButton: 'continue'),
+                  CustomHomeButton(onClick: newClicked, textButton: 'new'),
+                  CustomHomeButton(onClick: aboutClicked, textButton: 'about'),
+                  CustomHomeButton(
+                      onClick: splashClicked, textButton: 'splash'),
+                  SizedBox(height: 180),
+                ]),
           ),
         ]),
       ),
