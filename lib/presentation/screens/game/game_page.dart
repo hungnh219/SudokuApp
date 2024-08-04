@@ -88,11 +88,14 @@ class GamePage extends StatelessWidget {
           // )
           Container(
             height: 100,
-            width: 200,
+            width: double.infinity,
             color: Colors.purpleAccent,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(children: [
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                 for(int i = 0; i < 9; i++) ActionButtonCustom(index: i)
               ],),),  
           ),

@@ -10,14 +10,14 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 200), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return HomePage();
-        }),
-      );
-    });
+    // Future.delayed(Duration(seconds: 200), () {
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(builder: (context) {
+    //       return HomePage();
+    //     }),
+    //   );
+    // });
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -25,9 +25,12 @@ class SplashPage extends StatelessWidget {
         child: Scaffold(
           body: Stack(
             children: [
-              Image.asset(
-                'images/splash-background.png',
-                fit: BoxFit.cover,
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/images/splash-background.png',
+                  fit: BoxFit.cover,
+                  // scale: 0.1,
+                ),
               ),
               Positioned(
                   top: 16,
@@ -37,14 +40,13 @@ class SplashPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) {
-                          return GamePage();
+                          return HomePage();
                         }),
                       );
                     },
                     child: Text('Next'),
                   ),
                 ),
-                Center(child: Text('heheh')),
             ],
           ),
         ),
