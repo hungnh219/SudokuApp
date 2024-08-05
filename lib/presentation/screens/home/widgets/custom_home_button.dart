@@ -13,23 +13,25 @@ class CustomHomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
       // String capitalizedTextButton = textButton.capitalize();
       var boxDecoration = new BoxDecoration(
-        color: const Color.fromARGB(255, 238, 88, 238),
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.black, width: 2),
       );
 
       var textStyle = new TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 24,
+        fontWeight: FontWeight.bold,
       );
 
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: onClick,
         child: Container(
           decoration: boxDecoration,
           width: MediaQuery.of(context).size.width*0.4,
-          height: 40,
+          height: 48,
           child: Center(child: Text(textButton, style: textStyle,))
         ),
       ),

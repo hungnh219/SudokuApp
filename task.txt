@@ -19,3 +19,5 @@ using github copilot - done
 - boxfit
 
 - screen with image background
+
+- how to capitalize word

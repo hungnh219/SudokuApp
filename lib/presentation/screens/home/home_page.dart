@@ -27,6 +27,8 @@ class HomePage extends StatelessWidget {
           context, MaterialPageRoute(builder: (context) => SplashPage()));
     }
 
+    var widthScreen = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         body: Stack(children: [
@@ -35,6 +37,25 @@ class HomePage extends StatelessWidget {
               'assets/images/home-background.png',
               fit: BoxFit.cover,
               // scale: 0.1,
+            ),
+          ),
+          Container(
+            height: 480,
+            width: double.infinity,
+            color: Colors.black.withOpacity(0.5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Sudoku',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text('HH'),
+              ],
             ),
           ),
           Container(

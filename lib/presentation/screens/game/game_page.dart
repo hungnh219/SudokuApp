@@ -45,18 +45,6 @@ class GamePage extends StatelessWidget {
               ],
             ),
           ),
-          // Material(
-          //   child: InkWell(
-          //     onTap: cellTapped,
-          //     child: Container(
-          //       height: 200,
-          //       width: 200,
-          //       // color: Colors.greenAccent,
-          //       decoration: state.isClick ? clickedBoxStyle : notClickedBoxStyle,
-          //       child: Center(child: Text(state.value.toString())),
-          //     ),
-          //   ),
-          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -75,17 +63,6 @@ class GamePage extends StatelessWidget {
               }, child: Text('3')),
             ],
           ),
-          // Expanded(
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     // shrinkWrap: true,
-          //     padding: EdgeInsets.all(4),
-          //     itemCount: 9,
-          //     itemBuilder: (context, index) {
-          //       return ActionButtonCustom(index: index);
-          //     } 
-          //   ),
-          // )
           Container(
             height: 100,
             width: double.infinity,
@@ -93,8 +70,6 @@ class GamePage extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                 for(int i = 0; i < 9; i++) ActionButtonCustom(index: i)
               ],),),  
