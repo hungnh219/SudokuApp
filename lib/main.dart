@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_bloc.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
+import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/home_page.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       create: (_) => CellBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: GamePage(),
+        home: TestGamePage(),
           // child: GameScreen())
         ),
     );
