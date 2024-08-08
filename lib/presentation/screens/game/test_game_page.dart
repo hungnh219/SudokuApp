@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/presentation/screens/game/widget/board_game.dart';
 import 'package:sudoku/presentation/screens/game/widget/game_info.dart';
 
 class TestGamePage extends StatelessWidget {
@@ -17,25 +18,11 @@ class TestGamePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
               BackButton(),
-              Text('Sudoku'),
+              Text('Test game page'),
               BackButton(),
             ],),
             GameInfo(),
-            Container(
-              constraints: BoxConstraints(maxHeight: double.infinity),
-              height: widthScreen * 0.9,
-              width: widthScreen * 0.9,
-              child: GridView.count(
-                crossAxisCount: 9,
-                mainAxisSpacing: 0,
-                crossAxisSpacing: 0,
-                children: [
-                  for(int i = 0; i < 9; i++)
-                    for (int j = 0; j < 9; j++) 
-                      Container(height:20, width: 10, color: Colors.yellowAccent, child: Center(child: Text('0')),)
-                ],
-              ),
-            ),
+            GameBoard(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
