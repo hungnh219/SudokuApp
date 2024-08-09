@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       create: (_) => CellBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TestGamePage(),
+        home: SplashPage(),
           // child: GameScreen())
         ),
     );

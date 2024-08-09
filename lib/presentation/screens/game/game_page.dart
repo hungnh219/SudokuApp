@@ -71,7 +71,7 @@ class GamePage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                for(int i = 0; i < 9; i++) ActionButtonCustom(index: i)
+                // for(int i = 0; i < 9; i++) ActionButtonCustom(index: i)
               ],),),  
           ),
           ElevatedButton(onPressed: () {

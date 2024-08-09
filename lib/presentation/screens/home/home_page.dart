@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
+import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/widgets/custom_home_button.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 
@@ -10,12 +11,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     continueClicked() {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => GamePage()));
+          context, MaterialPageRoute(builder: (context) => TestGamePage()));
     }
 
     newClicked() {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => GamePage()));
+          context, MaterialPageRoute(builder: (context) => TestGamePage()));
     }
 
     aboutClicked() {
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
           Container(
             height: 480,
             width: double.infinity,
-            color: Colors.black.withOpacity(0.5),
+            // color: Colors.black.withOpacity(0.5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

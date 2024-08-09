@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/presentation/screens/game/widget/action_button_custom.dart';
 import 'package:sudoku/presentation/screens/game/widget/board_game.dart';
 import 'package:sudoku/presentation/screens/game/widget/game_info.dart';
+import 'package:sudoku/presentation/screens/game/widget/number_button.dart';
 
 class TestGamePage extends StatelessWidget {
   const TestGamePage({super.key});
@@ -23,21 +25,8 @@ class TestGamePage extends StatelessWidget {
             ],),
             GameInfo(),
             GameBoard(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      print('1');
-                    },
-                    child: Text('1')),
-                ElevatedButton(
-                    onPressed: () {
-                      print('2');
-                    },
-                    child: Text('2')),
-              ],
-            ),
+            ActionButtonList(),
+            NumberButtonList()
           ],
         ),
       ),

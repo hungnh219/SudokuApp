@@ -4,27 +4,43 @@ import 'package:sudoku/bloc/cell/cell_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_event.dart';
 
 class ActionButtonCustom extends StatelessWidget {
-  const ActionButtonCustom({super.key, required this.index});
+  ActionButtonCustom({super.key, required this.icon, required this.iconText});
 
-  final int index;
+  IconData icon;
+  String iconText;
   @override
   Widget build(BuildContext context) {
-    final blocCell = context.read<CellBloc>();
-    
-    int cellValue = index + 1;
-    onTappedButton() {
-      blocCell.add(ChangeValueCell(cellValue));
-    }
+    int widthScreen = MediaQuery.of(context).size.width.toInt();
 
-    return Material(
-      child: InkWell(
-        onTap: onTappedButton,
-        child: Container(
-            height: 40,
-            width: 40,
-            color: Colors.redAccent,
-            child: Text(cellValue.toString()),
-        ),
+    return InkWell(
+      onTap: () {
+        print('action button pressed');
+      },
+      child: Container(
+        // height: widthScreen * 0.2,
+        width: widthScreen * 0.1,
+        child: Column(children: [
+          Icon(icon, size: 40,),
+          Text(iconText)
+        ],),),
+    );
+  }
+}
+
+class ActionButtonList extends StatelessWidget {
+  const ActionButtonList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ActionButtonCustom(icon: Icons.undo, iconText: 'undo'),
+          ActionButtonCustom(icon: Icons.redo, iconText: 'redo'),
+          ActionButtonCustom(icon: Icons.delete, iconText: 'delete'),
+          ActionButtonCustom(icon: Icons.lightbulb, iconText: 'hint'),
+        ],
       ),
     );
   }
