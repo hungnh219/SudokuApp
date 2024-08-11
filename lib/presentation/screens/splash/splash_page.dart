@@ -10,6 +10,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int heightScreen = MediaQuery.of(context).size.height.toInt();
     // Future.delayed(Duration(seconds: 200), () {
     //   Navigator.push(
     //     context,
@@ -47,6 +48,10 @@ class SplashPage extends StatelessWidget {
                     child: Text('Next'),
                   ),
                 ),
+              Positioned(
+                top: heightScreen * 0.45,
+                child: Image.asset('assets/images/splash-sudoku-board.png'),
+              )
             ],
           ),
         ),
