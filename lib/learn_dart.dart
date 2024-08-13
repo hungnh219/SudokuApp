@@ -1,37 +1,54 @@
-import 'dart:async';
+// import 'dart:async';
 
-class Logic {
-  StreamController controller;
-  Sink get sink => controller.sink;
-  Stream get stream => controller.stream;
+// int calculateSum(List<int>? list) {
+//   int ans = 0;
 
-  Logic(this.controller);
+//   if (list == null) {
+//     print('hehe');
+//     return 0;
+//   }
 
-  void addValue(String str) {
-    sink.add(str);
+//   for (int i = 0; i < list.length; i++) {
+//     ans += list[i];
+//   }
+
+//   return ans;  
+// }
+
+// main() {
+//   List<int>? list = [1, 2, 3, 4, 5];
+
+
+//   print(calculateSum(list).toString());
+//   print(calculateSum(null).toString());
+// }
+
+import 'dart:io';
+
+double calculateAverage(List<double> numbers) {
+  double sum = 0;
+
+  for (double number in numbers) {
+    sum += number;
   }
 
-  void printValue() {
-    stream.listen((value) {
-      print(value);
-    });
+  return sum / numbers.length;
+}
+
+void main() {
+  List<double> numbers = [];
+
+  while (true) {
+    stdout.write('Enter a number (0 to stop): ');
+    double input = double.parse(stdin.readLineSync()!);
+
+    if (input == 0) {
+      break;
+    }
+
+    numbers.add(input);
   }
+
+  double average = calculateAverage(numbers);
+  print('The average is: $average');
 }
-
-main() {
-  StreamController controller = StreamController();
-  Logic logic = Logic(controller);
-
-  logic.addValue('hung dep trai');
-  logic.printValue();
-  logic.addValue('hung dep trai vcl may con ga biet gi?');
-  logic.printValue();
-
-  controller.close();
-}
-
-void calculateSum(int a, int b) {
-  print(a + b);
-}
-
-// write a simple program using bloc in dart

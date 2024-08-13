@@ -1,35 +1,4 @@
-implement backtracking algorithm
-
-splash screen
-
-using github copilot - done
-
-30/07/24
-- learn about navigation in flutter
-    + build context - done
-    + context - done
-    + scaffold, material app - done
-    + how flutter app run and build and debug?
-        https://medium.com/@sharansukesh2000/understanding-flutter-app-lifecycle-a-step-by-step-guide-89676251ac84
-    + bloc
-
-- fix bug: auto navigate in splash 
-    + if use click-button to navigate, there will be a bug
-    
-- use bloc for sudoku board
-    + devide bloc into 2 bloc: 1 for game, 1 for cell clicked
-    ** use provider for cell click
-    *** idea ***
-    - use 2 blocs
-    - cell tapped bloc for only managed the index of the chosen cell by user
-    - game bloc for overall gameplay 
-        + when update game board, a function from UI get the index from cell tapped bloc and pass into game bloc
-          (don't call cell tapped bloc in game bloc. in this way, game bloc doesn't need to directly access or depend on the internal state of cell tapped bloc)
-
-- boxfit
-
-- screen with image background
-
-- how to capitalize word 
-
+*** 18/04/24
+- using bloc (full)
 - using git
+- learn oop
