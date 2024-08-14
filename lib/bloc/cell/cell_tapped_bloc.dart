@@ -10,8 +10,12 @@ class CellTappedBloc extends Bloc<CellTappedEvent, CellTappedState> {
   void _onCellTapped(CellTapped event, Emitter<CellTappedState> emit) {
     final currentState = state;
 
+    print('cell tap check ${event.row} ${event.col}');
     if (currentState.col != event.col || currentState.row != event.row) {
       emit(CellTappedState(event.row, event.col));
+    } else {
+      print('cell tap duplicate -1 -1');
+      emit(CellTappedState(-1, -1));
     }
   }
 }

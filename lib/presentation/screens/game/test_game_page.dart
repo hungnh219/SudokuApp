@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
 import 'package:sudoku/presentation/screens/game/widget/action_button_custom.dart';
-import 'package:sudoku/presentation/screens/game/widget/board_game.dart';
+import 'package:sudoku/presentation/screens/game/widget/game_board.dart';
 import 'package:sudoku/presentation/screens/game/widget/game_info.dart';
 import 'package:sudoku/presentation/screens/game/widget/number_button.dart';
 import 'package:sudoku/presentation/screens/home/home_page.dart';

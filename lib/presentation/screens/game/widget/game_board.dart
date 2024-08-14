@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_bloc.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_event.dart';
 
 class GameBoard extends StatelessWidget {
   const GameBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final CellTappedBloc cellTappedBloc = CellTappedBloc();
     int widthScreen = MediaQuery.of(context).size.width.toInt();
 
     return Stack(
@@ -42,7 +45,8 @@ class GameBoard extends StatelessWidget {
               for (int j = 0; j < 9; j++)
                 InkWell(
                   onTap: () {
-                    print('cell tap check $i $j');
+                    // print('cell tap check $i $j');
+                    cellTappedBloc.add(CellTapped(i, j));
                   },
                   child: Container(
                     decoration: BoxDecoration(
