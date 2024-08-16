@@ -7,12 +7,14 @@ class BackButtonCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Text(
-        'back', style: TextStyle(color: Colors.yellow),
-      ),
       onPressed: () {
-        Navigator.pop(context);
+        print('back');
+        Navigator.of(context).pop();
       },
+      child: Text(
+        'back',
+        style: TextStyle(color: Colors.yellow),
+      ),
     );
   }
 }

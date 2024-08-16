@@ -14,17 +14,9 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cellBloc = context.read<CellBloc>();
-    // String cellValue = 'huhu';
-
-    
-
     actionButtonPressed() {
     }
-
-    // cellTapped () {
-    //   print('cell tap check');
-    //   cellBloc.add(ClickCell());
-    // }
+    
     return BlocBuilder<CellBloc, CellState>(builder: (context, state) {
       return Column(
         children: [
