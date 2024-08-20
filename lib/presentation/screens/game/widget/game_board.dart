@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sudoku/bloc/cell/cell_state.dart';
 import 'package:sudoku/bloc/cell/cell_tapped_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_tapped_event.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_state.dart';
+import 'package:sudoku/bloc/game/game_bloc.dart';
+import 'package:sudoku/bloc/game/game_state.dart';
+
 
 class GameBoard extends StatelessWidget {
   const GameBoard({super.key});
@@ -48,14 +54,21 @@ class GameBoard extends StatelessWidget {
                     // print('cell tap check $i $j');
                     cellTappedBloc.add(CellTapped(i, j));
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 0.1,
-                      ),
-                    ),
-                    child: Center(child: Text('0')),
+                  child: BlocBuilder<GameBloc, GameState>(
+                    builder: (context, state) {
+                      print('state.board[i][j] ${state.board[i][j]}');
+                      String value = state.board[i][j].toString();
+
+                      return Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 0.1,
+                          ),
+                        ),
+                        child: Center(child: Text(value)),
+                      );
+                    }
                   ),
                 )
           ],

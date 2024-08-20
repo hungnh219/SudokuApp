@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sudoku/bloc/game/game_bloc.dart';
+import 'package:sudoku/bloc/game/game_event.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
 import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/widgets/custom_home_button.dart';
@@ -9,6 +12,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final gameBloc = context.read<GameBloc>();
+    
     continueClicked() {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TestGamePage()));
@@ -69,10 +74,13 @@ class HomePage extends StatelessWidget {
                 children: [
                   CustomHomeButton(
                       onClick: continueClicked, textButton: 'continue'),
-                  CustomHomeButton(onClick: newClicked, textButton: 'new'),
+                  CustomHomeButton(onClick: continueClicked, textButton: 'new'),
                   CustomHomeButton(onClick: aboutClicked, textButton: 'about'),
                   CustomHomeButton(
                       onClick: splashClicked, textButton: 'splash'),
+                      ElevatedButton(onPressed: () {
+                        gameBloc.add(GameStartEvent());
+                      }, child: Text('Start Game')),
                   SizedBox(height: 180),
                 ]),
           ),

@@ -7,10 +7,20 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   // CellTappedBloc cellTappedBloc;
 
   GameBloc() : super(GameState([])) {
-    on<UpdatedBoardEvent> ((event, emit) => updateBoard(emit, event.board));
+    on<UpdatedBoardEvent> (_updateBoard);
+    on<GameStartEvent>(_startGame);
   }
 
-  updateBoard(Emitter emit , List<List<int>> board) {
+  _startGame(GameEvent event, Emitter emit) {
+    List<List<int>> board = List.generate(9, (i) => List.generate(9, (j) => -1));
+
+    print(board[5][8].toString());
+    print('start game - game bloc');
+    emit(GameState(board));
+  }
+  
+  _updateBoard(GameEvent event, Emitter emit) {
+    List<List<int>> board = List.generate(9, (i) => List.generate(9, (j) => 0));
     emit(GameState(board));
   }
 }

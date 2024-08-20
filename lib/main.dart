@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_bloc.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_bloc.dart';
+import 'package:sudoku/bloc/game/game_bloc.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
 import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/home_page.dart';
@@ -26,8 +28,12 @@ class MyApp extends StatelessWidget {
   //   );
   // }
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CellBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => CellBloc()),
+        BlocProvider(create: (_) => GameBloc()),
+        BlocProvider(create: (_) => CellTappedBloc()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashPage(),
