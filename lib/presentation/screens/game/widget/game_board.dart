@@ -7,18 +7,16 @@ import 'package:sudoku/bloc/cell/cell_tapped_state.dart';
 import 'package:sudoku/bloc/game/game_bloc.dart';
 import 'package:sudoku/bloc/game/game_state.dart';
 
-
 class GameBoard extends StatelessWidget {
   const GameBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final CellTappedBloc cellTappedBloc = CellTappedBloc();
+    final cellTappedBloc = context.read<CellTappedBloc>();
     int widthScreen = MediaQuery.of(context).size.width.toInt();
 
-    return Stack(
-      children: [
-        Container(
+    return Stack(children: [
+      Container(
         // constraints: BoxConstraints(maxHeight: double.infinity),
         height: widthScreen * 0.9,
         width: widthScreen * 0.9,
@@ -38,7 +36,7 @@ class GameBoard extends StatelessWidget {
           ],
         ),
       ),
-        Container(
+      Container(
         // constraints: BoxConstraints(maxHeight: double.infinity),
         height: widthScreen * 0.9,
         width: widthScreen * 0.9,
@@ -55,26 +53,28 @@ class GameBoard extends StatelessWidget {
                     cellTappedBloc.add(CellTapped(i, j));
                   },
                   child: BlocBuilder<GameBloc, GameState>(
-                    builder: (context, state) {
-                      print('state.board[i][j] ${state.board[i][j]}');
-                      String value = state.board[i][j].toString();
+                      builder: (context, gameState) {
+                    print('state.board[i][j] ${gameState.board[i][j]}');
+                    String value = gameState.board[i][j].toString();
 
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 0.1,
+                    return BlocBuilder<CellTappedBloc, CellTappedState>(
+                      builder: (context, cellTappedState) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: cellTappedState.row == i && cellTappedState.col == j ? 2 : 0.1,
+                            ),
                           ),
-                        ),
-                        child: Center(child: Text(value)),
-                      );
-                    }
-                  ),
+                          child: Center(child: Text(value)),
+                        );
+                      },
+                    );
+                  }),
                 )
           ],
         ),
       ),
-      ]
-    );
+    ]);
   }
 }

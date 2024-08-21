@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_bloc.dart';
+import 'package:sudoku/bloc/cell/cell_tapped_state.dart';
+import 'package:sudoku/bloc/game/game_bloc.dart';
 import 'package:sudoku/bloc/game/game_event.dart';
+import 'package:sudoku/bloc/game/game_state.dart';
 
 class NumberButton extends StatelessWidget {
   NumberButton({super.key, required this.num});
@@ -8,12 +13,23 @@ class NumberButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String numString = num.toString();
-
     int widthScreen = MediaQuery.of(context).size.width.toInt();
+
+    final gameBloc = context.read<GameBloc>();
+    final cellTappedBloc = context.read<CellTappedBloc>();
+
+    void _onTap() {
+
+      List<int> coordinates = [cellTappedBloc.state.row, cellTappedBloc.state.col];
+      print(num.toString());
+      print(coordinates);
+      if (coordinates[0] != -1 && coordinates[1] != -1) {
+        gameBloc.add(UpdateBoardEvent(num, coordinates));
+      }
+    }
+
     return GestureDetector(
-      onTap: () {
-        print(num.toString());
-      },
+      onTap: _onTap,
       child: Container(
         decoration: BoxDecoration(
           // color: Colors.blue,

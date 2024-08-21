@@ -18,15 +18,9 @@ class GameSaveEvent extends GameEvent {}
 
 class GameLoadEvent extends GameEvent {}
 
-class CellTapEvent extends GameEvent {
-  final int row;
-  final int col;
-
-  CellTapEvent(this.row, this.col);
-}
-
-class UpdatedBoardEvent extends GameEvent {
-  final List<List<int>> board;
-
-  UpdatedBoardEvent(this.board);
+class UpdateBoardEvent extends GameEvent {
+  int value;
+  List<int> coordinates;
+  
+  UpdateBoardEvent(this.value, this.coordinates);
 }

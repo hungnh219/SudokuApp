@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gameBloc = context.read<GameBloc>();
-    
+
     continueClicked() {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TestGamePage()));
@@ -73,14 +73,39 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   CustomHomeButton(
-                      onClick: continueClicked, textButton: 'continue'),
-                  CustomHomeButton(onClick: continueClicked, textButton: 'new'),
-                  CustomHomeButton(onClick: aboutClicked, textButton: 'about'),
+                      onClick: () {
+                        gameBloc.add(GameStartEvent());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TestGamePage()));
+                      },
+                      textButton: 'continue'),
+                  CustomHomeButton(
+                      onClick: () {
+                        gameBloc.add(GameStartEvent());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TestGamePage()));
+                      },
+                      textButton: 'new'),
+                  CustomHomeButton(
+                      onClick: () {
+                        gameBloc.add(GameStartEvent());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TestGamePage()));
+                      },
+                      textButton: 'about'),
                   CustomHomeButton(
                       onClick: splashClicked, textButton: 'splash'),
-                      ElevatedButton(onPressed: () {
-                        gameBloc.add(GameStartEvent());
-                      }, child: Text('Start Game')),
+                  // ElevatedButton(
+                  //     onPressed: () {
+                  //       gameBloc.add(GameStartEvent());
+                  //     },
+                  //     child: Text('Start Game')),
                   SizedBox(height: 180),
                 ]),
           ),
