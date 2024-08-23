@@ -5,6 +5,7 @@ import 'package:sudoku/bloc/game/game_event.dart';
 import 'package:sudoku/presentation/screens/game/game_page.dart';
 import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/widgets/custom_home_button.dart';
+import 'package:sudoku/presentation/screens/setting/setting_page.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -101,11 +102,15 @@ class HomePage extends StatelessWidget {
                       textButton: 'about'),
                   CustomHomeButton(
                       onClick: splashClicked, textButton: 'splash'),
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       gameBloc.add(GameStartEvent());
-                  //     },
-                  //     child: Text('Start Game')),
+                  CustomHomeButton(
+                      onClick: () {
+                        gameBloc.add(GameStartEvent());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SettingPage()));
+                      },
+                      textButton: 'setting'),
                   SizedBox(height: 180),
                 ]),
           ),

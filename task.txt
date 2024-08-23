@@ -1,5 +1,19 @@
-*** 19/04/24
-- using bloc (full)
+*** 23/08/24
+- Navigator?
+- create modal: to choose difficulty of sudoku
+    + showDialog
+    + modal bottom (not recommend)
+
+- bug:
+    + why back button doesn't work
+
+- style:
+    + color
+    + string style (find font)
+
 - using git
 - learn oop, dart
-- backtracking algorithm
+
+- algorithms:
+    + backtracking
+    + how to generate sudoku puzzle
