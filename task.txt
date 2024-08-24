@@ -18,3 +18,8 @@
 - algorithms:
     + backtracking
     + how to generate sudoku puzzle
+
+- flow of the sudoku game:
+    + using backtracking to generate a fully sudoku board.
+    + remove cells: the amount of removed cells based on the chosen level by user.
+    + each time removing a cell, check if there is more than 1 solution, choose another to remove.
