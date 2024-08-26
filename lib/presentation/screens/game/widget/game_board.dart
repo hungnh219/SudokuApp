@@ -6,6 +6,7 @@ import 'package:sudoku/bloc/cell/cell_tapped_event.dart';
 import 'package:sudoku/bloc/cell/cell_tapped_state.dart';
 import 'package:sudoku/bloc/game/game_bloc.dart';
 import 'package:sudoku/bloc/game/game_state.dart';
+import 'package:sudoku/utils/my_color.dart';
 
 class GameBoard extends StatelessWidget {
   const GameBoard({super.key});
@@ -29,8 +30,8 @@ class GameBoard extends StatelessWidget {
               for (int j = 0; j < 3; j++)
                 Container(
                   color: ((i + j) % 2 == 0)
-                      ? Colors.yellowAccent
-                      : Colors.pinkAccent,
+                      ? Color(ColorApp().pink_white)
+                      : Color(ColorApp().pink_light),
                   // child: Center(child: Text('0')),
                 )
           ],

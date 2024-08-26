@@ -15,6 +15,9 @@
 - using git
 - learn oop, dart
 
+- dart:
+    + list (list.generate)
+    
 - algorithms:
     + backtracking
     + how to generate sudoku puzzle
