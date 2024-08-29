@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+
 class ColorApp {
-  final int pink_white = 0xFFFCE3E9;
-  final int pink_light = 0xFFFFD5DE;
+  static const int appPinkWhite = 0xFFFCE3E9;
+  static const int appPinkLight = 0xFFFFD5DE;
+  static const int appBlackLight = 0x60000000;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/utils/my_color.dart';
 
 class GameInfoCustom extends StatelessWidget {
   GameInfoCustom({super.key, required this.title, required this.value});
@@ -24,7 +25,7 @@ class GameInfo extends StatelessWidget {
       // alignment: Alignment.center,
       // height: 80,
       width: double.infinity,
-      color: Colors.pinkAccent.withOpacity(0.5),
+      // color: Color(ColorApp.appBlackLight),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

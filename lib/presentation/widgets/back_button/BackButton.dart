@@ -9,8 +9,8 @@ class BackButtonCustom extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         // print('back');
-        // Navigator.of(context).pop();
-        Navigator.pop(context);
+        Navigator.of(context).pop();
+        // Navigator.pop(context);
       },
       child: Text(
         'back',

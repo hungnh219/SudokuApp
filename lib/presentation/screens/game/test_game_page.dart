@@ -21,23 +21,36 @@ class TestGamePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
+        body: Stack(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-              // BackButtonCustom(),
-              ElevatedButton.icon(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-              }, icon: Icon(Icons.arrow_back), label: Text('Back')),
-              Text('00:00'),
-              BackButtonCustom()
-            ],),
-            GameHeader(),
-            GameInfo(),
-            GameBoard(),
-            ActionButtonList(),
-            NumberButtonList()
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/pink-background.png'),
+                  fit: BoxFit.fitHeight
+                )
+              ),
+              child: null,
+            ),
+            Column(
+            children: [
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //   // BackButtonCustom(),
+              //   ElevatedButton.icon(onPressed: () {
+              //     Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+              //   }, icon: Icon(Icons.arrow_back), label: Text('Back')),
+              //   Text('00:00'),
+              //   BackButtonCustom()
+              // ],),
+              GameHeader(),
+              GameInfo(),
+              GameBoard(),
+              ActionButtonList(),
+              NumberButtonList()
+            ],
+          ),
           ],
         ),
       ),

@@ -30,8 +30,8 @@ class GameBoard extends StatelessWidget {
               for (int j = 0; j < 3; j++)
                 Container(
                   color: ((i + j) % 2 == 0)
-                      ? Color(ColorApp().pink_white)
-                      : Color(ColorApp().pink_light),
+                      ? Color(ColorApp.appPinkWhite)
+                      : Color(ColorApp.appPinkLight),
                   // child: Center(child: Text('0')),
                 )
           ],
