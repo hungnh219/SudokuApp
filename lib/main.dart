@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashPage(),
+        home: HomePage(),
           // child: GameScreen())
         ),
     );

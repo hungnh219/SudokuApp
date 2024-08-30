@@ -1,8 +1,9 @@
 *** tasks - 30/08/24 ***
-- add border main board
+- add border main board (done)
 - complete color and string style
 - interact with json
 - build server
+- optimize code (board game)
 
 *** works
 - Navigator?
