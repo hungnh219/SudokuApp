@@ -7,6 +7,8 @@ import 'package:sudoku/presentation/screens/game/game_page.dart';
 import 'package:sudoku/presentation/screens/game/test_game_page.dart';
 import 'package:sudoku/presentation/screens/home/home_page.dart';
 import 'package:sudoku/presentation/screens/splash/splash_page.dart';
+import 'package:sudoku/routers/routers.dart';
+import 'package:sudoku/screens/main/home_screen.dart';
 
 void main() {
   runApp(
@@ -34,11 +36,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => GameBloc()),
         BlocProvider(create: (_) => CellTappedBloc()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomePage(),
-          // child: GameScreen())
-        ),
+      child: MaterialApp.router(
+        routerConfig: router,
+      )
     );
   }
 }
