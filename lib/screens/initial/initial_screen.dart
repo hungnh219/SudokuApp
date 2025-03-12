@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/screens/main/home_screen.dart';
 
 class InitialScreen extends StatelessWidget {
   const InitialScreen({super.key});
@@ -7,6 +8,6 @@ class InitialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('hehe');
+    return HomeScreen();
   }
 }
