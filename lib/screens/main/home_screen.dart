@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sudoku/commons/strings/strings.dart';
+import 'package:sudoku/screens/main/game/game_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('HH'),
-          Text('Sudoku'),
+          Text(AppString.appName),
+          Text(AppString.sudoku),
         ]
     );
   }
@@ -56,7 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _homeButtons() {
     return Column(
       children: [
-        ElevatedButton(onPressed: () {}, child: Text('new')),
+        ElevatedButton(onPressed: () {
+          context.pushNamed(GameScreen.path, extra: null);
+        }, child: Text(AppString.appName)),
         ElevatedButton(onPressed: () {}, child: Text('new')),
         ElevatedButton(onPressed: () {}, child: Text('new')),
       ],
