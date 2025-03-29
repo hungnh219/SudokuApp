@@ -3,10 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_bloc.dart';
 import 'package:sudoku/bloc/cell/cell_tapped_bloc.dart';
 import 'package:sudoku/bloc/game/game_bloc.dart';
-import 'package:sudoku/presentation/screens/game/game_page.dart';
-import 'package:sudoku/presentation/screens/game/test_game_page.dart';
-import 'package:sudoku/presentation/screens/home/home_page.dart';
-import 'package:sudoku/presentation/screens/splash/splash_page.dart';
 import 'package:sudoku/routers/routers.dart';
 import 'package:sudoku/screens/main/home_screen.dart';
 

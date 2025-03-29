@@ -10,6 +10,14 @@ class Timer extends StatefulWidget {
 class _TimerState extends State<Timer> {
   late int minutes;
   late int seconds;
+  Stream<int> timer() async* {
+    int count = 0;
+    while(true) {
+      await Future.delayed(Duration(seconds: 1));
+      count++;
+      yield count;
+    }
+  }
 
   @override
   void initState() {
@@ -19,6 +27,11 @@ class _TimerState extends State<Timer> {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$minutes : $seconds');
+    return StreamBuilder(stream: timer(), builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data.toString());
+      } else
+        return Text('hehe');
+    });
   }
 }

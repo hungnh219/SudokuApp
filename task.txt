@@ -47,3 +47,6 @@ refactor
 - behavior subject
 
 - game screen
+    + chessboard -> gridview
+    + pause -> popup dialog
+    + timer -> stream data + behavior subject
